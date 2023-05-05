@@ -16,6 +16,101 @@
     <label>K</label><br>
   	<input type="submit" value="calcular" class="botao">
   	<p class="cResu"></p>
-  	<script src="javinha.js"></script>
+  	<script>
+    
+    let cN =
+document.querySelector('.cN');
+
+let cK =
+document.querySelector('.cK');
+
+let i;
+
+let cTipo =
+document.querySelector('.cTipo');
+
+let cResu =
+document.querySelector('.cResu');
+
+function calcular() {
+
+	let n = Number(cN.value);
+
+    let k = Number(cK.value);
+
+    let kAlt = k;
+
+    let nAlt = n;
+
+    let deno = n - k;
+
+    let denoAlt = deno;
+
+    let nume = n;
+
+    let tipo = Number(cTipo.value);
+
+    if (n < 1) {
+
+    	nume = 1;
+
+    }
+
+    else {
+
+    	for (i = 1; i < nAlt; i++) {
+
+    		nume *= i;
+
+    	}
+
+    }
+
+    if (deno < 1) {
+
+        deno = 1;
+
+    }
+
+    else {
+
+    	for (i = 1; i < denoAlt; i++) {
+
+    		deno *= i;
+
+    	}
+
+    }
+
+    if (tipo === 2) {
+
+        if (k < 1) {
+
+            k = 1;
+
+        } else {
+
+            for (i = 1; i < kAlt; i++) {
+
+                    k *= i;
+
+            }
+
+            deno *= k;
+
+        }
+
+    }
+
+    let resultado = nume / deno;
+
+    cResu.textContent =
+
+`O resultado é ${resultado}`;
+
+}
+
+botao.addEventListener('click', calcular);
+    </script>
   </body>
 </html>

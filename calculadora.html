@@ -17,15 +17,21 @@
   	<input type="submit" value="calcular" class="botao">
   	<p class="cResu"></p>
   	<script>
+//
+//   OS COMENTARIOS SAO MARCADOS POR BARRAS.
+//
     
     let cN =
 document.querySelector('.cN');
+//registra o input pela sua classe 
 
 let cK =
 document.querySelector('.cK');
+//mesma coisas e etc. para todos os que tem o
+//document.querySelector('.class')
 
 let i;
-
+//cria a variavel para os lacos de reptcao
 let cTipo =
 document.querySelector('.cTipo');
 
@@ -35,82 +41,79 @@ document.querySelector('.cResu');
 function calcular() {
 
 	let n = Number(cN.value);
+// let é palavra para criar uma variavel.
+//o script pega o valor que esta inserido no
+//campo. O "Number" serve para transformar o
+// o valor lido, que está em string, em um
+// valor numerico. Ja o class."value" serve
+// para ler o valor.
 
     let k = Number(cK.value);
+//idem.
 
     let kAlt = k;
-
-    let nAlt = n;
+//réplica para usar em lacos de repeticao
 
     let deno = n - k;
+//denominadores
 
     let denoAlt = deno;
+//outra variavel alternativa
 
     let nume = n;
+//numerador
 
     let tipo = Number(cTipo.value);
-
+//abaixo sera definido o numerador, isto e, 
+// n!.
     if (n < 1) {
-
     	nume = 1;
-
     }
 
     else {
-
-    	for (i = 1; i < nAlt; i++) {
-
-    		nume *= i;
-
-    	}
-
+     	  for (i = 1; i < n; i++) {
+        nume *= i;
+// nume *= i é a mesma coisa que dizer
+// nume = i * nume
+    	    }
     }
 
     if (deno < 1) {
-
         deno = 1;
-
     }
 
     else {
-
-    	for (i = 1; i < denoAlt; i++) {
-
-    		deno *= i;
-
-    	}
-
+       	for (i = 1; i < denoAlt; i++) {
+    	   deno *= i;
+      	}
     }
 
     if (tipo === 2) {
 
+
+//a diferença entre combinacao e arranjo é o 
+// k. veja as formulas google pra entender
+
+
         if (k < 1) {
-
             k = 1;
-
         } else {
 
             for (i = 1; i < kAlt; i++) {
-
                     k *= i;
-
             }
-
             deno *= k;
-
         }
-
     }
-
     let resultado = nume / deno;
 
     cResu.textContent =
-
 `O resultado é ${resultado}`;
-
 }
 
 botao.addEventListener('click', calcular);
+// define que quando apertado o botao, devera
+//ser executada a funcao calcular.
     </script>
   </body>
 </html>
